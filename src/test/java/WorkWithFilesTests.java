@@ -68,7 +68,6 @@ public class WorkWithFilesTests {
 
     @Test
     void testJsonParsing() throws IOException {
-        // Пример JSON файла
         String json = "[\n" +
                 "    {\n" +
                 "        \"name\": \"John Doe\",\n" +
@@ -90,16 +89,9 @@ public class WorkWithFilesTests {
                 "    }\n" +
                 "]";
 
-        // Создаем объект ObjectMapper для десериализации JSON
         ObjectMapper objectMapper = new ObjectMapper();
-
-        // Десериализация JSON в список объектов Person
         List<Person> people = objectMapper.readValue(json, objectMapper.getTypeFactory().constructCollectionType(List.class, Person.class));
-
-        // Проверка, что размер списка равен 2
         assertEquals(2, people.size(), "The list should contain 2 persons");
-
-        // Проверка содержимого первого объекта
         Person firstPerson = people.get(0);
         assertEquals("John Doe", firstPerson.getName(), "First person name should be 'John Doe'");
         assertEquals(30, firstPerson.getAge(), "First person age should be 30");

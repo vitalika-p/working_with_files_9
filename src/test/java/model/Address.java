@@ -6,7 +6,6 @@ public class Address {
     private String city;
     private String zipcode;
 
-    // Геттеры и сеттеры для полей
     public String getStreet() {
         return street;
     }
